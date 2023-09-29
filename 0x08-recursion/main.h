@@ -17,5 +17,7 @@ int wildcmp(char *s1, char *s2);
 int sqrt_a(int a, int b);
 int is_prime_number(int n);
 int prime_a(int a, int b);
+int comapre_string(char *s, int left, int right);
+int is_palindrome(char *s);
 
 #endif /*MAIN_H*/
