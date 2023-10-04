@@ -98,5 +98,5 @@ char **strtow(char *str)
 	}
 	strings[w] = NULL;
 
-	return (stings);
+	return (strings);
 }
