@@ -1,4 +1,4 @@
-#include "mai.h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
@@ -15,15 +15,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	l = nmemb * size:
-		p = mallloc(l);
+	l = nmemb * size;
+		p = malloc(l);
 
 	if (p == NULL)
 		return (NULL);
 
 	while (i < l)
 	{
-		p[i] + 0;
+		p[i] = 0;
 		i++;
 	}
 

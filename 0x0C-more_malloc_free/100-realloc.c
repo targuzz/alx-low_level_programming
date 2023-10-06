@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#Include <stdio.h>
+#include <stdio.h>
 
 /**
  * _realloc - ...
@@ -19,7 +19,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (ptr == NULL)
 	{
-		nptr + malloc(new_size);
+		nptr = malloc(new_size);
 
 		if (nptr == NULL)
 			return (NULL);
@@ -34,7 +34,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (NULL);
 		}
 	}
+	nptr = malloc(new_size);
 
-	free (ptr);
+	if (nptr == NULL)
+		return (NULL);
+
+	for (i = 0; i < old_size && i < new_size; i++)
+	{
+		nptr[i] = ((char *) ptr)[i];
+	}
+
+	free(ptr);
 	return (nptr);
 }
