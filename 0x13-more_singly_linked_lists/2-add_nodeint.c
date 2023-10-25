@@ -5,8 +5,7 @@
  * @head: pointer to the head pointer
  * which the head points to the first node
  * @n: new int. to be created
- * Return: If the function fails - NULL.
- * 	Otherwise - the address of the new element.
+ * Return: the head
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {

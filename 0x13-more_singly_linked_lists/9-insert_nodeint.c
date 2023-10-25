@@ -18,7 +18,7 @@ listint_t *create_new_node(int n)
 }
 
 /**
- * insert_nodient_at_index - inset a node at an index in a list
+ * insert_nodient_at_index - insert a node at an index in a list
  * @head: pointer to the first element of the list
  * @idx: index to the position the new node is to be inserted
  * @n: the data of the new node created
