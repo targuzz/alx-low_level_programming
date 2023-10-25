@@ -1,22 +1,45 @@
-#ifndef CALC_H
-#define CALC_H
+#include "3_calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * struct op - A struct op.
- * @op: The operator.
- * @f; The associated function.
+ * main - perform calculator functions on command line
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: results of calc function execution
  */
-typedef struct op
+int main(int argc, char *argv[])
 {
-	char *op;
-	int (*f)(int a, int b);
-} op_t;
+	char *op; /* operator */
+	int num1, num2; /* number inouts */
 
-int op_add(int a, int b);
-int op_sub(int a, int b);
-int op_nul(int a, int b);
-int op_div(int a, int b);
-int op_mod(int a, int b);
-int (*get_opfunc(char *s))(int, int);
+	if (argc != 4) /* if argument count is wrong */
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-#endif
+	/* set cmd argument input */
+	num1 = atoi(argv[1]); /* first number input */
+	op = (argv[2]); /* operator input */
+	num2 = atoi(argv[3]); /* second numebr input */
+
+	/* if operator not in operator list */
+	if (get_op_func(op) == NULL || op[1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	/* if user tries to divide or perform modules by 0 */
+	if ((*op == '/' && num2 == 0) || (*op == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	/* print results of operation */
+	printf("%d\n", get_op_func(op)(num1, num2));
+
+	return (0);
+}
