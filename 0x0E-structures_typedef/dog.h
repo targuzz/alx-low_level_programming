@@ -3,17 +3,18 @@
 
 /**
  * struct dog - a dog's basic info
- * @name: first member
- * @age: Second member
- * @owner: Third member
- * Description: Longer description
+ * @name: the name of the dog
+ * @age: the age of the dog
+ * @owner: the owner of the dog
+ * Description: first struct with alx
  */
-struct dog
+
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 /**
  * dog_t - typedef for struct dog
