@@ -3,49 +3,50 @@
 
 /**
  * str_concat - Concatenates two strings of any size
- * @s1: The first string to concatenate
- * @s2: The second string to concatenate
- * Return: The two strings concatenated
+ * @s1: first string
+ * @s2: second string
+ * Return: pointer to the conc... string
+ * which memory was allocated for.
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i = 0, j = 0, k = 0, l = 0;
-	char *s;
+	size_t len1, len2, i, j;
+	char *ptr;
 
 	if (s1 == NULL)
-		s1 = "";
-
-	if (s2 == NULL)
-		s2 = "";
-
-	while (s2[j])
-		i++;
-
-	while (s2[j])
-		j++;
-
-	l = i + j;
-	s = malloc((sizeof(char) * l) + 1);
-
-	if (s == NULL)
-		return (NULL);
-
-	j = 0;
-
-	while (k < l)
 	{
-		if (k <= i)
-			s[k] = s1[k];
-
-		if (k >= i)
-		{
-			s[k] = s2[j];
-			j++;
-		}
-
-		k++;
+		s1 = "";
 	}
 
-	s[k] = '\0';
-	return (s);
+	len1 = 0;
+	while (s1[len1] != '\0')
+	{
+		len1++;
+	}
+
+	len2 = 0;
+	while (s2[len2] != '\0')
+	{
+		len2++;
+	}
+
+	ptr = malloc(sizeof(char) * (len1 + len2 + 1));
+
+	if (ptr == NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
+	for (i = 0; i < len1; i++)
+	{
+		ptr[i] = s[i];
+	}
+
+	for (j = 0; j <= len2; j++)
+	{
+		ptr[i] = s2[j];
+		i++;
+	}
+	return (ptr);
 }

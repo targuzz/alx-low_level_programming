@@ -3,28 +3,40 @@
 #include "main.h"
 
 /**
- * _strdup - duplicate to new memory space location
- * @str: char
- * Return: 0
+ * _strdup - return a pointer to a newly allocated
+ * space in memory also duplicate the string it holds
+ * to the new space
+ *
+ * @str: initial input string
+ * Return: pointer to the memory allocated
+ * which is an array of characters
  */
-
 char *_strdup(char *str)
 {
-	char *aaa;
-	int i, r = 0;
+	size_t i, j;
+	char *strdout;
 
 	if (str == NULL)
+	{
 		return (NULL);
+	}
+
 	i = 0;
 	while (str[i] != '\0')
+	{
 		i++;
+	}
 
-	aaa = malloc(sizeof(char) * (i + 1));
+	strdout = (char *)malloc(sizeof(char) * (i + 1));
 
-	if (aaa == NULL)
+	if (strdout == NULL)
+	{
 		return (NULL);
+	}
 
-	for (r = 0; str[r]; r++)
-		aaa[r] = str[r];
-	return (aaa);
+	for (j = 0; j <= i; j++)
+	{
+		strdout[j] = str[j];
+	}
+	return (strdout);
 }
