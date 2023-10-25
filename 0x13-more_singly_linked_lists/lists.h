@@ -1,19 +1,33 @@
 #ifndef LISTS_H
 #define LISTS_H
-#include <stdlib.h>
 
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * struct list_s - singly linked list
- * @n: integer
- * @next: points ti the next mode
- * Description: singly linked list mode structure
- * for Holberton project
+ * struct listint_s - self referencial struct
+ * for creating nodes of a singly linked list
+ * @n: integer data
+ * @next: self refercial pointer
+ * pointer to the next node of a list
  */
 typedef struct listint_s
 {
 	int n;
 	struct listint_s *next;
 } listint_t;
+
+/**
+ * struct listp_s - singly linked list
+ * @p: pointers of nodes
+ * @next: points to the next node
+ * Description: singly linked list of pointers
+ */
+
+typedef struct listp_s
+{
+        void *p;
+        struct listp_s *next;
+} listp_t;
 
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
